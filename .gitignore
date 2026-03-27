@@ -1,0 +1,11 @@
+# Mac OS
+.DS_Store
+
+# Ignore all PDF and Word documents as they are likely just reference materials
+*.pdf
+*.doc
+*.docx
+# Ignore folders that might contain tests/materials if they are not source code
+# You can remove these if you want to upload them
+新标日每一课对应的试卷/
+新标日随课试卷/
