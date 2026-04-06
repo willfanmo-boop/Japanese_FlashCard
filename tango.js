@@ -28,7 +28,7 @@ function render(){const wY=window.scrollY;const app=document.getElementById('app
 function bind(){const Bth=document.getElementById('Bth');if(Bth)Bth.onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',S.theme);sv();render();};const Bhm2=document.getElementById('Bhm2');if(Bhm2)Bhm2.onclick=()=>{S.view='home';render();};const Bfv2=document.getElementById('Bfv2');if(Bfv2)Bfv2.onclick=()=>{S.view='favs';render();};
 document.querySelectorAll('[data-tb]').forEach(el=>el.onclick=()=>{S.tab=el.dataset.tb;render();if(S.tab==='i')setTimeout(()=>document.getElementById('Ij')?.focus(),30);});if(S.view==='home'&&S.tab==='i')setTimeout(()=>document.getElementById('Ij')?.focus(),30);
 const Badd=document.getElementById('Badd');if(Badd)Badd.onclick=addWord;
-['Ij','Ir','Ic'].forEach((id,i,a)=>{const el=document.getElementById(id);if(!el)return;el.onkeydown=e=>{if(e.key==='Enter'){if(id==='Ic')addWord();else document.getElementById(a[i+1])?.focus();}};});
+['Ij','Ir','Ic'].forEach((id,i,a)=>{const el=document.getElementById(id);if(!el)return;el.onkeydown=e=>{if(e.key==='Enter'&&!e.isComposing&&e.keyCode!==229){e.preventDefault();if(id==='Ic')addWord();else document.getElementById(a[i+1])?.focus();}};});
 const Bim=document.getElementById('Bim');if(Bim)Bim.onclick=doImport;
 const Bsp=document.getElementById('Bsp');if(Bsp)Bsp.onclick=()=>{const ta=document.getElementById('ITA');if(ta)ta.value='桜,さくら,櫻花\n東京,とうきょう,東京\n学校,がっこう,學校\n先生,せんせい,老師\n友達,ともだち,朋友\n電車,でんしゃ,電車\n食べる,たべる,吃\n飲む,のむ,喝\n見る,みる,看\n聞く,きく,聽';toast('示例已載入','📝');};
 const Ipdf=document.getElementById('Ipdf');if(Ipdf)Ipdf.onchange=e=>{if(e.target.files[0])pdfLoad(e.target.files[0]);};
